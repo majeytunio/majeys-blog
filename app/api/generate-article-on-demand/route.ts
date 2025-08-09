@@ -46,10 +46,10 @@ async function generateArticleWithOpenAI() {
         The object should have the following properties:
         - "title": A concise and catchy title for the article (string).
         - "description": A brief summary of the article (string).
-        - "feature_image": A high-quality Unsplash image URL (string) that can serve as the main image. **Please check the URL should be the valid URL not 404 URL, working URL from Any free stock footage website.**
+        - "feature_image": A high-quality Unsplash image URL (string) that can serve as the main image. **The URL must be a valid, working URL from Unsplash.**
         - "body": An array of objects. Each object in the array represents a part of the article.
             - An object with "type": "paragraph" and "content": "The text of the paragraph".
-            - An object with "type": "image" and "content": "An Unsplash image URL that fits the article content". **Please check the URL should be the valid URL not 404 URL, working URL from Any free stock footage website.**
+            - An object with "type": "image" and "content": "An Unsplash image URL that fits the article content". **The URL must be a valid, working URL from Unsplash.**
             - Please include at least one image URL within the body array.
             - Each paragraph should be distinct and flow well.
 
