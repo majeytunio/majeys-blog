@@ -124,6 +124,11 @@ import React from 'react';
 import ArticleCard from './ArticleCard'; // Import the new client component
 import Navbar from '../components/Navbar';
 
+// Set the revalidation frequency for this page.
+// revalidate = 0 means the page is never cached and will always be fresh.
+export const revalidate = 0;
+
+
 // Define a type for the article structure for type safety.
 interface Article {
   id: string;
@@ -132,6 +137,7 @@ interface Article {
   feature_image: string;
   created_at: string;
 }
+
 
 // Next.js server component to fetch and display articles.
 // This page is rendered on the server, fetching data directly from Supabase.

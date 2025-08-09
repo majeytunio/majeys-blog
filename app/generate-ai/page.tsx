@@ -5,6 +5,9 @@ import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useRouter } from 'next/router'; // For Next.js App Router, use 'next/navigation' instead.
 
+// Set the revalidation frequency for this page.
+// revalidate = 0 means the page is never cached and will always be fresh.
+export const revalidate = 0;
 
 // This is the main page component for the on-demand article generator.
 export default function App() {

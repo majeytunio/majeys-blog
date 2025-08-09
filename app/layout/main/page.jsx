@@ -175,6 +175,10 @@
 
 import ArticlesPage from "../../articles/page";
 
+// Set the revalidation frequency for this page.
+// revalidate = 0 means the page is never cached and will always be fresh.
+export const revalidate = 0;
+
 // Next.js server component to fetch and display articles.
 // This page is rendered on the server, fetching data directly from Supabase.
 export default async function MainPage() {
