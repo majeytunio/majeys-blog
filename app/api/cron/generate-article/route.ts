@@ -24,21 +24,38 @@ if (!openAiApiKey) {
 
 // Helper function to call the OpenAI API.
 async function generateArticleWithOpenAI() {
-  const prompt = `
-  You are an expert article writer. I need you to generate a unique, well-structured, and engaging article.
-  The article should be a single JSON object.
-  The object should have the following properties:
-  - "title": A concise and catchy title for the article (string).
-  - "description": A brief summary of the article (string).
-  - "feature_image": A high-quality Unsplash image URL (string) that can serve as the main image.
-  - "body": An array of objects. Each object in the array represents a part of the article.
-    - An object with "type": "paragraph" and "content": "The text of the paragraph".
-    - An object with "type": "image" and "content": "An Unsplash image URL that fits the article content".
-    - Please include at least one image URL within the body array.
-    - Each paragraph should be distinct and flow well.
+  // const prompt = `
+  // You are an expert article writer. I need you to generate a unique, well-structured, and engaging article.
+  // The article should be a single JSON object.
+  // The object should have the following properties:
+  // - "title": A concise and catchy title for the article (string).
+  // - "description": A brief summary of the article (string).
+  // - "feature_image": A high-quality Unsplash image URL (string) that can serve as the main image.
+  // - "body": An array of objects. Each object in the array represents a part of the article.
+  //   - An object with "type": "paragraph" and "content": "The text of the paragraph".
+  //   - An object with "type": "image" and "content": "An Unsplash image URL that fits the article content".
+  //   - Please include at least one image URL within the body array.
+  //   - Each paragraph should be distinct and flow well.
 
-  Please generate a complete JSON object that follows this structure. The article can be on any random topic.
-  `;
+  // Please generate a complete JSON object that follows this structure. The article can be on any random topic.
+  // `;
+
+
+  const prompt = `
+    You are an expert article writer. I need you to generate a unique, well-structured, and engaging article.
+    The article should be a single JSON object.
+    The object should have the following properties:
+    - "title": A concise and catchy title for the article (string).
+    - "description": A brief summary of the article (string).
+    - "feature_image": A high-quality Unsplash image URL (string) that can serve as the main image. **Please check the URL should be the valid URL not 404 URL, working URL from Any free stock footage website.**
+    - "body": An array of objects. Each object in the array represents a part of the article.
+        - An object with "type": "paragraph" and "content": "The text of the paragraph".
+        - An object with "type": "image" and "content": "An Unsplash image URL that fits the article content". **Please check the URL should be the valid URL not 404 URL, working URL from Any free stock footage website.**
+        - Please include at least one image URL within the body array.
+        - Each paragraph should be distinct and flow well.
+
+    Please generate a complete JSON object that follows this structure. The article can be on any random topic.
+    `;
 
   // Define the API endpoint and payload for the OpenAI API.
   const payload = {
