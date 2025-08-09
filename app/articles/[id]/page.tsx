@@ -245,11 +245,12 @@ interface Article {
 }
 
 interface SingleArticlePageProps {
-  params: { id: string };
+  params: { id: string } | Promise<{ id: string }>;
 }
 
 export default async function SingleArticlePage({ params }: SingleArticlePageProps) {
-  const { id } = params;
+  const resolvedParams = await Promise.resolve(params);
+  const { id } = resolvedParams;
 
   // Define the Supabase client.
   const supabaseUrl = process.env.SUPABASE_PROJECT_URL;
