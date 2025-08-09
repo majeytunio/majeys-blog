@@ -227,10 +227,9 @@
 
 import { createClient } from '@supabase/supabase-js';
 import React from 'react';
-import ArticleImage from '../ArticleImage'; // Corrected import path
+import ArticleImage from '../ArticleImage';
 import Navbar from '../../components/Navbar';
 
-// Define a type for the article structure for type safety.
 interface ArticleContent {
   type: 'paragraph' | 'image';
   content: string;
@@ -245,9 +244,11 @@ interface Article {
   created_at: string;
 }
 
-// Next.js server component to fetch and display a single article.
-// It receives the article ID from the URL params.
-export default async function SingleArticlePage({ params }: { params: { id: string } }) {
+interface SingleArticlePageProps {
+  params: { id: string };
+}
+
+export default async function SingleArticlePage({ params }: SingleArticlePageProps) {
   const { id } = params;
 
   // Define the Supabase client.
